@@ -13,14 +13,14 @@ string bigNumAdd(string a, string b) {
 	int size = max(a.size(), b.size());
 
 	for (int i = 0; i < size; i++) {
-		int digitA = (i < a.size()) ? a[i] - '0' : 0;   //자릿수 안 맞으면 0으로 채우기
-		int digitB = (i < b.size()) ? b[i] - '0' : 0;
+		int digit_a = (i < a.size()) ? a[i] - '0' : 0;   //자릿수 안 맞으면 0으로 채우기
+		int digit_b = (i < b.size()) ? b[i] - '0' : 0;
 
-		int digitSum = digitA + digitB + carry;
+		int digit_sum = digit_a + digit_b + carry;
 
-		carry = digitSum / 10;  //올림으로 십의 자리만 남기기
+		carry = digit_sum / 10;  //올림으로 십의 자리만 남기기
 
-		result.push_back(digitSum % 10 + '0');
+		result.push_back(digit_sum % 10 + '0');
 	}
 
 	if (carry){
