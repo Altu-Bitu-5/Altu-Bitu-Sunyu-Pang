@@ -3,21 +3,18 @@
 
 using namespace std;
 
-int main(){
-    int N, K;
-    queue<int> q;
-    
-    cin >> N >> K;
-    
-    for(int i=1; i<=N; i++){
+void pushNum (int n, queue<int> &q) {
+    for(int i=1; i<=n; i++){
         q.push(i);
     }
-    
+}
+
+void printJosephusP (int k, queue<int> q) {
     cout << "<";
 
     while(!q.empty()){
         //K번째 원소가 제일 앞에 오도록
-        for(int i=1; i<K; i++){
+        for(int i=1; i<k; i++){
             q.push(q.front());  //K번째 앞에 있는 원소들은 뒤에 삽입
             q.pop();    //뒤에 삽입한 원소들은 삭제
         }
@@ -32,6 +29,18 @@ int main(){
 
         q.pop();
     }
+}
+
+int main(){
+    int n, k;
+    queue<int> q;
+    
+    cin >> n >> k;
+    
+    pushNum(n, q);
+    
+    //출력
+    printJosephusP(k, q);
 
     return 0;
 }
