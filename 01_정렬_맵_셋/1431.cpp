@@ -4,11 +4,21 @@
 
 using namespace std;
 
+int sumOnlyNum(string str) {
+	int sum = 0;
+
+	for(int i = 0; i < str.length(); i++){
+		if(isdigit(str[i])) {
+			sum += str[i] - '0';
+		}
+	}
+
+	return sum;
+}
+
 int cmp(string a, string b) {
 	int a_len = a.length();
 	int b_len = b.length();
-	int a_sum = 0;
-	int b_sum = 0;
 
 	// 1. 길이가 다르면, 짧은 것 먼저
 	if (a_len != b_len) {
@@ -16,18 +26,8 @@ int cmp(string a, string b) {
 	}
 
 	// 2. 길이가 같다면, 모든 자리수의 합 비교해서 작은 합을 가지는 것이 먼저 (숫자인 것만 더하기)
-	for (int i = 0; i < a_len; i++) {
-		if (isdigit(a[i])) {
-			a_sum += ((a[i]) - '0');
-		}
-
-		if (isdigit(b[i])) {
-			b_sum += ((b[i]) - '0');
-		}
-	}
-
-	if (a_sum != b_sum) {
-		return a_sum < b_sum;
+	if (sumOnlyNum(a) != sumOnlyNum(b)) {
+		return sumOnlyNum(a) < sumOnlyNum(b);
 	}
 
     // 3. 사전순 비교 (숫자가 알파벳보다 사전순으로 작다.)
