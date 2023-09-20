@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+const int ALL = (1<<21) - 1;    //(111...111)2 = (1000...000)2 - 1 = 2^21 -1
 
 int addX (int s, int x) {
     s |= (1<<x);
@@ -54,7 +55,7 @@ int main() {
                 s = addX(s,x);
             }
         } else if (op == "all") {
-            s = (1<<21) - 1;    //(111...111)2 = (1000...000)2 - 1 = 2^21 -1
+            s = ALL;    
         } else if (op == "empty") {
             s = 0;
         }
