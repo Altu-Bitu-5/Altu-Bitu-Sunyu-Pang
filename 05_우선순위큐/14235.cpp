@@ -19,15 +19,17 @@ int main() {
         if(a == 0) {
             if(gift.empty()) {
                 cout << -1 << '\n';
-            } else {
-                cout << gift.top() << '\n';
-                gift.pop();
+                continue;
             }
-        } else {
-            for(int i=0; i<a; i++){
-                cin >> value;
-                gift.push(value);
-            }
+            
+            cout << gift.top() << '\n';
+            gift.pop();
+            continue;
+        }
+
+        for(int i=0; i<a; i++){
+            cin >> value;
+            gift.push(value);
         }
     }
 
