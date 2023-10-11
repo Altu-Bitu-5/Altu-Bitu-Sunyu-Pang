@@ -5,6 +5,7 @@
 		"queue": "cpp",
 		"xstring": "cpp",
 		"vector": "cpp",
-		"xiosbase": "cpp"
+		"cstdlib": "cpp",
+		"xiosbase": "cpp",
 	}
 }
