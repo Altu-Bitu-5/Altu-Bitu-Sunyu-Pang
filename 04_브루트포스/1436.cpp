@@ -2,16 +2,23 @@
 #include <string>
 using namespace std;
 
-string findApocalypse (int n){
+// 해당 수(cur)가 종말의 수인지 여부 반환
+bool isValid(int apocalypse) {
+    while (apocalypse >= 666) {
+        if (apocalypse % 1000 == 666) {
+            return true;
+        }
+        apocalypse /= 10;
+    }
+    return false;
+}
+
+int findApocalypse (int n){
     int cnt = 0;
-    string apocalypse;
-    
-    int i = 666;    ///첫번째 종말의수인 666부터 시작
+    int apocalypse = 666;    ///첫번째 종말의수인 666부터 시작
     
     while(true) {
-        apocalypse = to_string(i);
-        
-        if(apocalypse.find("666") != -1){
+        if(isValid(apocalypse)){
             cnt++;
         }
         
@@ -19,7 +26,7 @@ string findApocalypse (int n){
             return apocalypse;
         }
         
-        i++;
+        apocalypse++;
     }
 }
 
